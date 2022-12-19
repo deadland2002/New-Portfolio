@@ -17,6 +17,8 @@ pages.forEach( (single)=>{
     single.addEventListener('click', (e)=>{ handlepage(e) });
 })
 
+section[0].style.display = "block";
+
 function handlepage(e) {
 
   pages.forEach((single) => {
@@ -51,4 +53,17 @@ function HandleMouseOver(e){
 function HandleMouseOut(e){
     const lid = document.getElementById('lid');
     lid.classList.remove('translate-up-lid');
+}
+
+
+function closecard(e){
+  (((e.parentElement).parentElement).parentElement).style.display = 'none';
+}
+
+function minimisecard(e){
+  (((e.parentElement).parentElement).parentElement).style.maxHeight = '10px';
+}
+
+function maximizecard(e){
+  (((e.parentElement).parentElement).parentElement).style.maxHeight = 'fit-content';
 }
