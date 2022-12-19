@@ -1,3 +1,15 @@
+const lis = document.querySelectorAll('li');
+const pages = document.querySelectorAll(".section");
+const section = document.querySelectorAll('.page');
+
+
+
+
+
+
+
+
+
 window.addEventListener("mousemove", (e) => {
   const frame = document.getElementById("frame");
   var x = frame.parentElement.offsetLeft + frame.parentElement.offsetWidth / 2;
@@ -7,11 +19,22 @@ window.addEventListener("mousemove", (e) => {
   var rot = Math.floor(rot);
 
   frame.style.transform = `rotate( ${rot}deg)`;
-});
+});  
 
 
-const pages = document.querySelectorAll(".section");
-const section = document.querySelectorAll('.page');
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 pages.forEach( (single)=>{
     single.addEventListener('click', (e)=>{ handlepage(e) });
@@ -37,7 +60,14 @@ function handlepage(e) {
 
 }
 
-const lis = document.querySelectorAll('li');
+
+
+
+
+
+
+
+
 
 lis.forEach((single)=>{
     single.addEventListener('mouseover', (e)=>{ HandleMouseOver(e)});
@@ -56,14 +86,32 @@ function HandleMouseOut(e){
 }
 
 
+
+
+
+
+
+//              3 dot code 
+
+
+
 function closecard(e){
-  (((e.parentElement).parentElement).parentElement).style.display = 'none';
+  ((((e.parentElement).parentElement).parentElement).parentElement).style.display = 'none';
 }
 
 function minimisecard(e){
-  (((e.parentElement).parentElement).parentElement).style.maxHeight = '10px';
+  ((((e.parentElement).parentElement).parentElement).parentElement).style.maxHeight = (((e.parentElement).parentElement).parentElement).clientHeight+'px';
 }
 
 function maximizecard(e){
-  (((e.parentElement).parentElement).parentElement).style.maxHeight = 'fit-content';
+  ((((e.parentElement).parentElement).parentElement).parentElement).style.maxHeight = 'fit-content';
 }
+
+
+
+
+
+
+
+
+//    chat box

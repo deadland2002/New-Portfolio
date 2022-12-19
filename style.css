@@ -114,11 +114,10 @@ body {
   display: none;
   max-width: 100%;
 
-  height: 100%;
   border-radius: 20px;
   
   backdrop-filter: blur(5px);
-  min-height: 100vh;
+  min-height: 85vh;
   padding: 20px 20px;
 
 }
@@ -245,7 +244,7 @@ tbody {
 }
 
 .card{
-  max-width: 300px;
+  max-width: 400px;
   border-radius: 20px;
   padding: 20px 20px;
   background-color: rgba(41, 41, 41, 0.673);
@@ -254,11 +253,16 @@ tbody {
   font-size: 24px;
   gap: 20px;
   overflow: hidden;
+  min-width: 300px;
+  width: 50%;
 }
 
 
 .card-title{
   font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .card-content{
@@ -310,7 +314,6 @@ tbody {
 
 .three-dots{
   position: relative;
-  width: 100%;
   display: flex;
   justify-content: end;
 }
@@ -341,11 +344,29 @@ tbody {
 }
 
 
+.contact{
+  position: relative;
+}
 
 
+.msg img{
+  width: 50px;
+  cursor: pointer;
+}
 
-
-
+.msg{
+  position: absolute;
+  display: flex;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: transparent;
+  justify-content: center;
+  align-items: center;
+  right: 10px;
+  bottom: 0;
+  z-index: 10;
+}
 
 
 
