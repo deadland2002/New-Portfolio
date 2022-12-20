@@ -380,7 +380,7 @@
 
       <div class="About page" id="About">
         <div class="main">
-          <div class="wrapper avatar">
+          <div class="avatar">
             <img src="./img/profile.jpg" alt="" />
 
             I am a dedicated developer that is passionate about artificial
@@ -455,14 +455,56 @@
 
 
         <div class="msg">
-          <img src="./img/messenger.png" alt="" onclick="chat()">
+          <img src="./img/messenger.png" alt="" onclick="ChatOpen()">
         </div>
 
 
-        <div class="chatbox" id="chatbox">
-            <div>
-              <img src="./img/profile.jpg" alt="">
-              <img src="" alt="">
+        <div class="chat-box" id="chatbox">
+            <div class="chat-box-top">
+              <div class="chat-pic">
+                <img src="./img/messenger.png" alt="" width="30px">
+              </div>
+              <div class="chat-close" onclick="ChatClose()">
+                <div>
+                  <img src="./img/cross-mark.png" alt="" width="20px">
+                </div>
+              </div>
+            </div>
+            <div class="chat-main" id="holder-chat">
+              
+              <div class="msg-main" id="msg_main">
+                <div class="admin-msg">
+                  <div> Hi 👋</div>
+                </div>
+                <div class="admin-msg">
+                  <div> I am satvik bot </div>
+                </div>
+                <div class="admin-msg">
+                  <div> I’m just like satvik, but a far better conversationalist 😉 </div>
+                </div>
+                <div class="admin-msg">
+                  <div> care for something... </div>
+                </div>
+                <div class="option-chat" onclick="handlechat('I just wanted to say hello')" >
+                  <div > I just wanted to say hello</div>
+                </div>
+                <div class="option-chat" onclick="handlechat('Hi')" >
+                  <div > Hi</div>
+                </div>
+                <div class="option-chat" onclick="handlechat('Hire Me')" >
+                  <div > Hire Me </div>
+                </div>
+              </div>
+
+              <div id="writing" class="writing">
+                <div class="wrapper">
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                  <div class="circle"></div>
+                </div>
+              </div>
+
+
             </div>
         </div>
 
