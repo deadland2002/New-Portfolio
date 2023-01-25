@@ -183,6 +183,15 @@ const data = {
     { classname: 'admin-msg'  , trigger: true , msg: 'Sure'},
     { classname: 'admin-msg'  , trigger: true , msg: 'Nope'}
   ],
+  'Related to Other.':[
+    { classname: 'admin-msg'  , trigger: false , msg: 'Ok , I got you.'},
+    { classname: 'admin-msg'  , trigger: false , msg: "But I am not sure how to help you"},
+    { classname: 'admin-msg'  , trigger: false , msg: 'Cause I am running blind here , 😄'},
+    { classname: 'admin-msg'  , trigger: false , msg: 'Sorry , never mind.'},
+    { classname: 'admin-msg'  , trigger: false , msg: 'Feel free to contact me.'},
+    { classname: 'admin-msg'  , trigger: false , msg: 'I will drop my email below'},
+    { classname: 'admin-msg'  , trigger: false , msg: 'satvikshukla453@gmail.com'}
+  ]
 }
 
 
@@ -212,23 +221,24 @@ function ChatOpen() {
 
 
 
-function addhtml(id,classname,trigger,msg){
-  var sec = 1.5;
+async function addhtml(id,classname,trigger,msg,sec=1.5){
   const element = document.getElementById(id);
+  
+  var fun;
   
   if(msg.length >=20){
     sec = Math.floor(msg.length / 10);
   }
   
-  var fun;
-
+  
   if(trigger){
     fun = `onclick="handlechat('${msg}')"`;
     sec = 0;
     classname = 'option-chat';
   }
-
   
+  await sleep(sec);
+
   element.innerHTML += `
   <div class="${classname}" ${fun} >
     <div>${msg}</div>
@@ -238,11 +248,13 @@ function addhtml(id,classname,trigger,msg){
   document.getElementById('holder-chat').scrollTo(0,pos);
   pos+=1000;
 
-  return new Promise(resolve => setTimeout(resolve, sec*900));
-
 }
 
 
+
+function sleep(sec){
+  return new Promise(resolve => setTimeout(resolve, sec*900));
+}
 
 
 
@@ -256,13 +268,17 @@ async function handlechat(msg) {
 
   writing.style.display = "block";
 
-  await addhtml("msg_main","user-msg","",msg,1);
+  await addhtml("msg_main","user-msg","",msg,sec);
 
   if(msg=="Hi")
     hello++;
 
   if(hello>=5){
-    await addhtml("msg_main","admin-msg","","I think we have done enough greetings for the day",1)
+
+    addhtml("msg_main","admin-msg","","I think we have done enough greetings for the day",1)
+    
+    writing.style.display = "none";
+    
     return;
   }
 
@@ -280,3 +296,4 @@ async function handlechat(msg) {
   writing.style.display = "none";
 
 }
+
