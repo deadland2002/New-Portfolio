@@ -232,7 +232,7 @@ async function addhtml(id,classname,trigger,msg,sec=1.5){
   
   
   if(trigger){
-    fun = `onclick="handlechat('${msg}')"`;
+    fun = `onclick="handlechat(this,'${msg}')"`;
     sec = 0;
     classname = 'option-chat';
   }
@@ -261,14 +261,13 @@ function sleep(sec){
 
 
 
-async function handlechat(msg) {
+async function handlechat(elem,msg) {
   
   const chatbox = document.getElementById("msg_main");
   const writing = document.getElementById("writing");
-
   writing.style.display = "block";
 
-  await addhtml("msg_main","user-msg","",msg,sec);
+  await addhtml("msg_main","user-msg","",msg,1);
 
   if(msg=="Hi")
     hello++;
